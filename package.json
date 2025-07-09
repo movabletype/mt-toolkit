@@ -1,0 +1,63 @@
+{
+  "name": "@sixapart/movabletype-toolkit",
+  "version": "0.0.1-alpha.0",
+  "description": "JavaScript components and TypeScript definitions for Movable Type development",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && npm run build:types && npm run build:contenttype",
+    "build:types": "tsc",
+    "build:contenttype": "svelte-package --input src/contenttype --output dist/contenttype && rimraf src/@types/contenttype.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/movabletype/movabletype-js-toolkit.git"
+  },
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./contenttype": {
+      "types": "./dist/contenttype/index.d.ts",
+      "svelte": "./dist/contenttype/index.js",
+      "import": "./dist/contenttype/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "contenttype": [
+        "./dist/contenttype/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "keywords": [
+    "Movable Type",
+    "MovableTypes"
+  ],
+  "author": "Six Apart Ltd.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/movabletype/movabletype-js-toolkit/issues"
+  },
+  "homepage": "https://github.com/movabletype/movabletype-js-toolkit",
+  "dependencies": {
+    "@types/jquery": "^3.5.30",
+    "@types/jqueryui": "^1.12.22"
+  },
+  "peerDependencies": {
+    "@riotjs/observable": "^4.1.1",
+    "svelte": "^4.2.19",
+    "tinymce": "^6.8.5"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.3.12",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
+}
