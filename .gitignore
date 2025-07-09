@@ -1,0 +1,8 @@
+*~
+*.swp
+*.tar.gz
+*.tgz
+*.zip
+node_modules/
+dist/
+.svelte-kit/
