@@ -1,11 +1,11 @@
-# @sixapart/movabletype-toolkit
+# @sixapart/mt-toolkit
 
 This package provides JavaScript components and TypeScript definitions for Movable Type development.
 
 ## Installation
 
 ```
-npm install @sixapart/movabletype-toolkit@latest
+npm install @sixapart/mt-toolkit@latest
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install @sixapart/movabletype-toolkit@latest
 Use `import` statements in your TypeScript files:
 
 ```ts
-import "@sixapart/movabletype-toolkit";
+import "@sixapart/mt-toolkit";
 location.href = window.CMSScriptURI; // redirect to dashboard
 ```
 
@@ -24,7 +24,7 @@ Or use `types` in `tsconfig.json`:
 ```json
 {
   "compilerOptions": {
-    "types": ["@sixapart/movabletype-toolkit"]
+    "types": ["@sixapart/mt-toolkit"]
   }
 }
 ```
@@ -45,12 +45,12 @@ Or use `typeRoots` in `tsconfig.json`:
 import {
   ContentFieldOptionGroup,
   ContentFieldOption,
-} from "@sixapart/movabletype-toolkit/contenttype";
+} from "@sixapart/mt-toolkit/contenttype";
 import type {
   ConfigSettings,
   OptionsHtmlParams,
   Field,
-} from "@sixapart/movabletype-toolkit/contenttype";
+} from "@sixapart/mt-toolkit/contenttype";
 ```
 
 ### License
