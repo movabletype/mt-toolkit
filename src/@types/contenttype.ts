@@ -23,11 +23,11 @@ export interface ContentFieldsOpts {
 }
 
 // used in Custom.svelte
-export type CustomContentFieldMountFunction = (
+export type CustomContentFieldMountFunction<O = undefined> = (
   props: {
     config: ConfigSettings;
     fieldIndex: number;
-    fieldsStore: FieldsStore;
+    fieldsStore: FieldsStore<O>;
     optionsHtmlParams: OptionsHtmlParams;
   },
   target: Element,
@@ -42,7 +42,7 @@ export interface CustomContentFieldObject {
 }
 
 // used in ContentFieldOpts
-export interface Field {
+interface BaseField {
   type: string;
   typeLabel: string;
   canDataLabel: number;
@@ -51,15 +51,24 @@ export interface Field {
   isNew?: boolean;
   isShow?: string;
   label?: string;
-  options?: Options;
   order?: number;
   realId?: string;
   unique_id?: string;
 }
 
-export type Fields = Array<Field>;
+interface FieldOptionalOptions extends BaseField {
+  options?: Options;
+}
 
-export type FieldsStore = Writable<Fields>;
+interface FieldTypedOptions<O> extends BaseField {
+  options: O;
+}
+
+export type Field<O = undefined> = O extends undefined ? FieldOptionalOptions : FieldTypedOptions<O>;
+
+export type Fields<O = undefined> = Array<Field<O>>;
+
+export type FieldsStore<O = undefined> = Writable<Fields<O>>;
 
 export type ObservableInstanceAny =
   import("@riotjs/observable").ObservableInstance<any>; // eslint-disable-line @typescript-eslint/no-explicit-any

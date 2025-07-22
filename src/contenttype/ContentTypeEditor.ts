@@ -13,9 +13,9 @@ export default class ContentTypeEditor {
   static accessor opts: ContentType.ContentFieldsOpts;
   static readonly types = ContentFieldTypes;
 
-  static registerCustomType(
+  static registerCustomType<O = undefined>(
     type: string,
-    mountFunction: ContentType.CustomContentFieldMountFunction,
+    mountFunction: ContentType.CustomContentFieldMountFunction<O>,
   ): void {
     this.types.registerCustomType(type, mountFunction);
   }
