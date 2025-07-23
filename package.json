@@ -1,6 +1,6 @@
 {
   "name": "@sixapart/mt-toolkit",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0",
   "description": "JavaScript components and TypeScript definitions for Movable Type development",
   "main": "dist/index.js",
   "scripts": {
